@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
       - name: Release
-        uses: jef/conventional-commits-release-action@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag'
