@@ -1,8 +1,12 @@
 name: Release
 on:
-  commit:
+  push:
     branches:
       - main
+
+# Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
 jobs:
   release:
     name: Release Package
