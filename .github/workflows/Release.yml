@@ -14,6 +14,7 @@ jobs:
         with:
           bump_version_scheme: minor
   build:
+    needs: release-on-push
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
