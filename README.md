@@ -1,3 +1,3 @@
 # AridiaCraft-Textures
 
-A Custom TexturePack 
+A Custom TexturePack for "AridiaCraft - Next Generation" Minecraft Modpack
