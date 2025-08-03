@@ -1,6 +1,18 @@
 name: Create Archive
-on: [push]
+on: 
+  push:
+    branches:
+      - main
+      
 jobs:
+  release-on-push:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: rymndhng/release-on-push-action@master
+        with:
+          bump_version_scheme: minor
   build:
     runs-on: ubuntu-latest
     steps:
@@ -14,5 +26,6 @@ jobs:
     - name: Upload Release
       uses: ncipollo/release-action@v1.12.0
       with:
+        tag: ${{ steps.release.outputs.tag_name }}
         artifacts: "release.zip"
         token: ${{ secrets.GITHUB_TOKEN }}
