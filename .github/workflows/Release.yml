@@ -1,19 +1,14 @@
-name: Release
-on:
+on: 
   push:
     branches:
-      - main
+      - master
 
-# Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-  
 jobs:
-  release:
-    name: Release Package
+  release-on-push:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Release
-        uses: softprops/action-gh-release@v2
+      - uses: rymndhng/release-on-push-action@master
+        with:
+          bump_version_scheme: minor
