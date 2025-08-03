@@ -1,11 +1,11 @@
 name: Release
 on:
-  push:
+  commit:
     branches:
       - main
 jobs:
   release:
-    name: Release code
+    name: Release Package
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
