@@ -17,6 +17,7 @@ jobs:
       - uses: rymndhng/release-on-push-action@master
         with:
           bump_version_scheme: minor
+          
   #Creates a Package and attaches it to new generated Tag
   build:
     needs: release-on-push
